@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1D7AFC"/>
+      <stop offset="1" stop-color="#0747A6"/>
+    </linearGradient>
+    <!-- A page with a folded corner, 46 x 60 -->
+    <path id="page" d="M6 0 H32 L46 14 V54 Q46 60 40 60 H6 Q0 60 0 54 V6 Q0 0 6 0 Z"/>
+    <path id="fold" d="M32 0 V10 Q32 14 36 14 H46 Z"/>
+    <!-- Padlock, 16 x 18 -->
+    <g id="lock">
+      <path d="M3.5 8 V5.5 A4.5 4.5 0 0 1 12.5 5.5 V8" fill="none" stroke-width="2.6" stroke-linecap="round"/>
+      <rect x="0" y="7.5" width="16" height="11" rx="2.5"/>
+    </g>
+  </defs>
+
+  <rect width="144" height="144" rx="30" fill="url(#bg)"/>
+
+  <!-- Tree connector from the root page down to its children -->
+  <path d="M38 80 V104 H56 M38 92 H76" fill="none" stroke="#85B8FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+
+  <!-- Root page -->
+  <g transform="translate(18 18)">
+    <use href="#page" fill="#FFFFFF"/>
+    <use href="#fold" fill="#CCE0FF"/>
+    <use href="#lock" transform="translate(15 28)" fill="#0C66E4" stroke="#0C66E4"/>
+  </g>
+
+  <!-- Child pages inherit the same lock -->
+  <g transform="translate(58 66) scale(0.78)">
+    <use href="#page" fill="#E9F2FF"/>
+    <use href="#fold" fill="#B3D4FF"/>
+    <use href="#lock" transform="translate(15 28)" fill="#0C66E4" stroke="#0C66E4"/>
+  </g>
+  <g transform="translate(86 78) scale(0.78)">
+    <use href="#page" fill="#FFFFFF"/>
+    <use href="#fold" fill="#CCE0FF"/>
+    <use href="#lock" transform="translate(15 28)" fill="#0C66E4" stroke="#0C66E4"/>
+  </g>
+</svg>
