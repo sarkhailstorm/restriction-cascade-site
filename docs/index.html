@@ -5,169 +5,319 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Documentation · Restriction Cascade for Confluence</title>
   <meta name="description" content="How to set up and use Restriction Cascade for Confluence: cascade roots, Merge, Mirror and Exclude, automatic inheritance, preview and the activity log.">
+  <meta name="theme-color" content="#0c66e4">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Restriction Cascade documentation">
+  <meta property="og:description" content="Set up cascade roots, choose Merge, Mirror or Exclude, and read the activity log.">
+  <meta property="og:url" content="https://cascade.findigo.in/docs/">
+  <meta property="og:image" content="https://cascade.findigo.in/assets/img/og.png">
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/logo-144.png">
   <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/site.js" defer></script>
 </head>
 <body>
-  <header class="site">
-    <div class="inner">
-      <a class="brand" href="/">Restriction Cascade</a>
-      <nav class="site" aria-label="Main">
-        <a href="/docs/" aria-current="page">Documentation</a>
-        <a href="/privacy/">Privacy</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">Restriction Cascade</a>
+      <nav class="nav" aria-label="Main">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/docs/" aria-current="page">Docs</a>
         <a href="/support/">Support</a>
+        <a class="btn" href="/docs/#get-started">Get started</a>
       </nav>
+      <details class="menu">
+        <summary aria-label="Open menu"><svg aria-hidden="true"><use href="/assets/icons.svg#menu"/></svg></summary>
+        <nav class="menu-panel" aria-label="Main">
+          <a href="/#features">Features</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/docs/" aria-current="page">Documentation</a>
+          <a href="/support/">Support</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </details>
     </div>
   </header>
 
-  <main>
-    <h1>Documentation</h1>
-    <p class="lead">Restriction Cascade hands a page's edit restrictions down to every page below it, which Confluence does not do on its own.</p>
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="/">Home</a> / Documentation</div>
+        <h1>Documentation</h1>
+        <p class="lead">Restriction Cascade hands a page's edit restrictions down to every page below it, which Confluence does not do on its own. Here is everything you need to set it up and run it.</p>
+      </div>
+    </section>
 
-    <p>
-      <strong>On this page:</strong>
-      <a href="#requirements">Requirements</a> ·
-      <a href="#get-started">Get started</a> ·
-      <a href="#modes">Modes</a> ·
-      <a href="#automatic">What happens automatically</a> ·
-      <a href="#apply">Apply and preview</a> ·
-      <a href="#view">Pages only some people can view</a> ·
-      <a href="#admin">Admin settings</a> ·
-      <a href="#safety">Safety</a> ·
-      <a href="#limitations">Limitations</a> ·
-      <a href="#troubleshooting">Troubleshooting</a>
-    </p>
+    <div class="wrap docs">
+      <aside class="toc" aria-label="On this page">
+        <h4>On this page</h4>
+        <ol>
+          <li><a href="#requirements">Requirements</a></li>
+          <li><a href="#get-started">Get started</a></li>
+          <li><a href="#modes">Modes</a></li>
+          <li><a href="#automatic">What happens automatically</a></li>
+          <li><a href="#apply">Apply and preview</a></li>
+          <li><a href="#view">View-restricted pages</a></li>
+          <li><a href="#admin">Admin settings</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#limitations">Limitations</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+          <li><a href="#uninstalling">Uninstalling</a></li>
+          <li><a href="#help">Need help?</a></li>
+        </ol>
+      </aside>
 
-    <h2 id="requirements">Requirements</h2>
-    <ul>
-      <li>Confluence Cloud Standard, Premium or Enterprise. Confluence Free has no page restrictions.</li>
-      <li>Works on pages, live docs, folders, whiteboards and databases.</li>
-      <li>Only space admins (and Confluence admins) who can edit a page can make it a cascade root. Everyone else can see whether a page is part of a cascade.</li>
-    </ul>
+      <article class="prose">
+        <details class="toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#get-started">Get started</a></li>
+            <li><a href="#modes">Modes</a></li>
+            <li><a href="#automatic">What happens automatically</a></li>
+            <li><a href="#apply">Apply and preview</a></li>
+            <li><a href="#view">View-restricted pages</a></li>
+            <li><a href="#admin">Admin settings</a></li>
+            <li><a href="#safety">Safety</a></li>
+            <li><a href="#limitations">Limitations</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#uninstalling">Uninstalling</a></li>
+            <li><a href="#help">Need help?</a></li>
+          </ol>
+        </details>
 
-    <h2 id="get-started">Get started</h2>
-    <ol>
-      <li>Open the page whose editors should apply to everything below it, and restrict editing on it: <strong>Share → Specific access</strong>, then add the people and groups who may edit.</li>
-      <li>Open the page's <strong>•••</strong> menu and choose <strong>Apps → Restriction Cascade</strong>.</li>
-      <li>Under <strong>Cascade setting</strong>, choose <strong>Merge</strong> or <strong>Mirror</strong> (see <a href="#modes">Modes</a>).</li>
-      <li>
-        Click <strong>Save and apply to all pages below</strong> to bring existing pages in line now, or <strong>Save</strong> to apply only to
-        pages that are added from now on.
-      </li>
-    </ol>
-    <p>The dialog shows the run's progress and, when it finishes, which pages changed and which were skipped and why.</p>
+        <section id="requirements">
+          <h2>Requirements<a class="anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+          <ul>
+            <li>Confluence Cloud Standard, Premium or Enterprise. Confluence Free has no page restrictions.</li>
+            <li>Works on pages, live docs, folders, whiteboards and databases.</li>
+            <li>Only space admins (and Confluence admins) who can edit a page can make it a cascade root. Everyone else can see whether a page is part of a cascade.</li>
+          </ul>
+        </section>
 
-    <h2 id="modes">Modes</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Mode</th><th>What happens below the root</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Merge</strong></td>
-            <td>Pages anyone could edit become editable only by the root's editors. Pages that already restrict editing keep their editors and also get the root's editors.</td>
-          </tr>
-          <tr>
-            <td><strong>Mirror</strong></td>
-            <td>Every page gets exactly the root's editors. Anyone else listed as an editor is changed to view-only. Nobody loses view access.</td>
-          </tr>
-          <tr>
-            <td><strong>Exclude</strong></td>
-            <td>Shields a page and everything below it from a cascade set higher up the tree. Available on pages that sit under a root.</td>
-          </tr>
-        </tbody>
-      </table>
+        <section id="get-started">
+          <h2>Get started<a class="anchor" href="#get-started" aria-label="Link to Get started">#</a></h2>
+          <ol class="num-steps">
+            <li>Open the page whose editors should apply to everything below it, and restrict editing on it: <strong>Share → Specific access</strong>, then add the people and groups who may edit.</li>
+            <li>Open the page's <strong>•••</strong> menu and choose <strong>Apps → Restriction Cascade</strong>.</li>
+            <li>Under <strong>Cascade setting</strong>, choose <strong>Merge</strong> or <strong>Mirror</strong> (see <a href="#modes">Modes</a>).</li>
+            <li>Click <strong>Save and apply to all pages below</strong> to bring existing pages in line now, or <strong>Save</strong> to apply only to pages that are added from now on.</li>
+          </ol>
+          <figure class="figure narrow">
+            <div class="shot">
+              <a href="/assets/img/dialog.png" title="Open full size"><img src="/assets/img/dialog.png" width="800" height="822" loading="lazy"
+                alt="The Restriction Cascade dialog: the page is a cascade root in Mirror mode, with the editors listed, the cascade setting options, and buttons to preview changes or apply to all pages below now."></a>
+            </div>
+            <figcaption>The Restriction Cascade dialog on a root page.</figcaption>
+          </figure>
+          <div class="callout ok">
+            <svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg>
+            <p>The dialog shows the run's progress and, when it finishes, which pages changed and which were skipped and why.</p>
+          </div>
+        </section>
+
+        <section id="modes">
+          <h2>Modes<a class="anchor" href="#modes" aria-label="Link to Modes">#</a></h2>
+          <p>Each root has a mode that decides what happens to the pages below it.</p>
+          <div class="mode-grid">
+            <div class="card">
+              <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg></span>
+              <h3>Merge</h3>
+              <p>Pages anyone could edit become editable only by the root's editors. Pages that already restrict editing keep their editors and also get the root's editors.</p>
+            </div>
+            <div class="card">
+              <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#mirror"/></svg></span>
+              <h3>Mirror</h3>
+              <p>Every page gets exactly the root's editors. Anyone else listed as an editor is changed to view-only. Nobody loses view access.</p>
+            </div>
+            <div class="card">
+              <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#exclude"/></svg></span>
+              <h3>Exclude</h3>
+              <p>Shields a page and everything below it from a cascade set higher up the tree. Available on pages that sit under a root.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <svg aria-hidden="true"><use href="/assets/icons.svg#tree"/></svg>
+            <p>Roots can be nested. The nearest root or exclusion above a page decides.</p>
+          </div>
+        </section>
+
+        <section id="automatic">
+          <h2>What happens automatically<a class="anchor" href="#automatic" aria-label="Link to What happens automatically">#</a></h2>
+          <ul>
+            <li>Content that is <strong>created, moved, copied, restored or unarchived</strong> below a root is restricted within about a minute. A moved or copied page brings its own children with it.</li>
+            <li>When a <strong>root's own editors change</strong>, everything below it is updated again, usually within about a minute and a half.</li>
+            <li>Confluence does not always report that a root's editors changed. An <strong>hourly check</strong> compares each root's editors with the ones last applied and catches any change that was not reported, so it always lands within the hour.</li>
+          </ul>
+        </section>
+
+        <section id="apply">
+          <h2>Apply and preview<a class="anchor" href="#apply" aria-label="Link to Apply and preview">#</a></h2>
+          <ul>
+            <li><strong>Apply to all pages below now</strong> brings existing pages in line with the root's current editors.</li>
+            <li><strong>Preview changes</strong> lists what an apply would change, without changing anything.</li>
+            <li>Runs happen in the background. You can close the dialog, and stop a run from the dialog or from space settings.</li>
+            <li>One run and one preview per root at a time, and at most three user-started runs per space.</li>
+          </ul>
+          <figure class="figure narrow">
+            <div class="shot">
+              <a href="/assets/img/results.png" title="Open full size"><img src="/assets/img/results.png" width="800" height="790" loading="lazy"
+                alt="A finished run in the dialog: six items checked and changed, the changed pages listed, and one page skipped with the reason."></a>
+            </div>
+            <figcaption>A finished run lists every changed page, and every skipped page with the reason.</figcaption>
+          </figure>
+        </section>
+
+        <section id="view">
+          <h2>Pages only some people can view<a class="anchor" href="#view" aria-label="Link to Pages only some people can view">#</a></h2>
+          <p>
+            Restriction Cascade only ever changes who can <em>edit</em>. On a page that only some people can view, it gives edit access only to
+            people who can already view it. Root editors who cannot view the page are skipped, and the run lists them, so you can decide
+            whether they should see it.
+          </p>
+          <div class="callout warn">
+            <svg aria-hidden="true"><use href="/assets/icons.svg#alert"/></svg>
+            <p>
+              If a page is view-restricted and the app is not one of the people who can view it, Confluence hides the page from the app entirely.
+              Add the app to that page's view restrictions to include it.
+            </p>
+          </div>
+        </section>
+
+        <section id="admin">
+          <h2>Admin settings<a class="anchor" href="#admin" aria-label="Link to Admin settings">#</a></h2>
+          <h3>Space settings</h3>
+          <p>
+            <strong>Space settings → Restriction Cascade</strong> lists the space's roots and exclusions, lets space admins add roots and run them,
+            switches the app on or off for the space, and shows the space's activity log. A health panel flags anything that stops the app from
+            working in the space.
+          </p>
+          <figure class="figure">
+            <div class="shot">
+              <a href="/assets/img/roots.png" title="Open full size"><img src="/assets/img/roots.png" width="1278" height="822" loading="lazy"
+                alt="The Cascade roots tab in space settings: a table of roots with their mode, when they last changed, and Preview, Apply now and Remove buttons, plus a form to add a root by link."></a>
+            </div>
+            <figcaption>Space settings list every root and let you add one by pasting a link.</figcaption>
+          </figure>
+          <h3>Site settings</h3>
+          <p>
+            <strong>Apps → Manage apps → Restriction Cascade → Configure</strong> switches the app on or off for the whole site and shows the
+            site-wide activity log. Only Confluence admins can change it.
+          </p>
+          <h3>Activity log</h3>
+          <p>
+            Every change is recorded for 90 days: what changed, on which page, whose edit access was added or changed to view-only, and what
+            triggered it. Page titles are only shown to people who can view that page.
+          </p>
+          <figure class="figure">
+            <div class="shot">
+              <a href="/assets/img/activity.png" title="Open full size"><img src="/assets/img/activity.png" width="1150" height="556" loading="lazy"
+                alt="The activity log: rows with the time, what happened, the page, who triggered it, and details such as one editor added or one changed to view-only."></a>
+            </div>
+            <figcaption>The activity log in space settings.</figcaption>
+          </figure>
+        </section>
+
+        <section id="safety">
+          <h2>Safety<a class="anchor" href="#safety" aria-label="Link to Safety">#</a></h2>
+          <ul class="checks">
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><span>It never changes who can view a page.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><span>It never deletes permission entries and never replaces a page's restrictions wholesale. Mirror changes extra editors to view-only instead of removing them.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><span>It re-reads each page just before writing. If someone changed the restrictions in the meantime, it stops and logs a conflict instead of acting on stale data.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><span>After every write it reads the page again to check the result.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><span>A cascade never lets anyone change more than Confluence already allows them: only people who can edit the root page and administer its space can set one up.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><span>It runs entirely on Atlassian's platform. No data leaves Atlassian. See the <a href="/privacy/">privacy policy</a>.</span></li>
+          </ul>
+        </section>
+
+        <section id="limitations">
+          <h2>Limitations<a class="anchor" href="#limitations" aria-label="Link to Limitations">#</a></h2>
+          <ul>
+            <li>Confluence reports new pages up to about three minutes late, so a brand-new page can briefly be editable by everyone in the space.</li>
+            <li>Pages moved <em>out</em> of a root keep the editors they had. Nothing is removed automatically.</li>
+            <li>Smart links (embeds) have no restrictions in Confluence, so they are listed as unsupported.</li>
+            <li>View-restricted content that the app cannot see is not covered (see <a href="#view">above</a>).</li>
+          </ul>
+        </section>
+
+        <section id="troubleshooting">
+          <h2>Troubleshooting<a class="anchor" href="#troubleshooting" aria-label="Link to Troubleshooting">#</a></h2>
+          <h3>The Restriction Cascade dialog never opens</h3>
+          <p>
+            Confluence loads app screens from <code>*.cdn.prod.atlassian-dev.net</code>. Some home and office networks block that domain in their
+            DNS filter.
+          </p>
+          <div class="callout">
+            <svg aria-hidden="true"><use href="/assets/icons.svg#info"/></svg>
+            <p>Turn on secure DNS (DNS over HTTPS) in your browser, or ask your network admin to allow the domain.</p>
+          </div>
+          <h3>Nothing happens below a root</h3>
+          <ul>
+            <li>Check that the root page itself restricts editing. A page anyone can edit has no editors to hand down.</li>
+            <li>Check that the app is switched on for the site and for the space.</li>
+            <li>Check the activity log in space settings for skipped pages or conflicts.</li>
+            <li>If the licence is not active, cascades are paused and the dialog says so.</li>
+          </ul>
+        </section>
+
+        <section id="uninstalling">
+          <h2>Uninstalling<a class="anchor" href="#uninstalling" aria-label="Link to Uninstalling">#</a></h2>
+          <p>Restrictions the app has set stay on your pages. Atlassian deletes the app's stored data 28 days after uninstall.</p>
+        </section>
+
+        <section id="help">
+          <h2>Need help?<a class="anchor" href="#help" aria-label="Link to Need help">#</a></h2>
+          <div class="contact-card primary">
+            <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg></span>
+            <p>Email us and we will get back to you within two business days (India time).</p>
+            <a class="email" href="mailto:support@findigo.in">support@findigo.in</a>
+            <p style="margin: 0;"><a href="/support/">What to include in your message <svg aria-hidden="true" style="width: 14px; height: 14px; vertical-align: -2px;"><use href="/assets/icons.svg#arrow-right"/></svg></a></p>
+          </div>
+        </section>
+      </article>
     </div>
-    <p>Roots can be nested. The nearest root or exclusion above a page decides.</p>
-
-    <h2 id="automatic">What happens automatically</h2>
-    <ul>
-      <li>Content that is <strong>created, moved, copied, restored or unarchived</strong> below a root is restricted within about a minute. A moved or copied page brings its own children with it.</li>
-      <li>When a <strong>root's own editors change</strong>, everything below it is updated again, usually within about a minute and a half.</li>
-      <li>
-        Confluence does not always report that a root's editors changed. An <strong>hourly check</strong> compares each root's editors with
-        the ones last applied and catches any change that was not reported, so it always lands within the hour.
-      </li>
-    </ul>
-
-    <h2 id="apply">Apply and preview</h2>
-    <ul>
-      <li><strong>Apply to all pages below now</strong> brings existing pages in line with the root's current editors.</li>
-      <li><strong>Preview changes</strong> lists what an apply would change, without changing anything.</li>
-      <li>Runs happen in the background. You can close the dialog, and stop a run from the dialog or from space settings.</li>
-      <li>One run and one preview per root at a time, and at most three user-started runs per space.</li>
-    </ul>
-
-    <h2 id="view">Pages only some people can view</h2>
-    <p>
-      Restriction Cascade only ever changes who can <em>edit</em>. On a page that only some people can view, it gives edit access only to
-      people who can already view it. Root editors who cannot view the page are skipped, and the run lists them, so you can decide
-      whether they should see it.
-    </p>
-    <p>
-      If a page is view-restricted and the app is not one of the people who can view it, Confluence hides the page from the app entirely.
-      Add the app to that page's view restrictions to include it.
-    </p>
-
-    <h2 id="admin">Admin settings</h2>
-    <h3>Space settings</h3>
-    <p>
-      <strong>Space settings → Restriction Cascade</strong> lists the space's roots and exclusions, lets space admins add roots and run them,
-      switches the app on or off for the space, and shows the space's activity log. A health panel flags anything that stops the app from
-      working in the space.
-    </p>
-    <h3>Site settings</h3>
-    <p>
-      <strong>Apps → Manage apps → Restriction Cascade → Configure</strong> switches the app on or off for the whole site and shows the
-      site-wide activity log. Only Confluence admins can change it.
-    </p>
-    <h3>Activity log</h3>
-    <p>
-      Every change is recorded for 90 days: what changed, on which page, whose edit access was added or changed to view-only, and what
-      triggered it. Page titles are only shown to people who can view that page.
-    </p>
-
-    <h2 id="safety">Safety</h2>
-    <ul>
-      <li>It never changes who can view a page.</li>
-      <li>It never deletes permission entries and never replaces a page's restrictions wholesale. Mirror changes extra editors to view-only instead of removing them.</li>
-      <li>It re-reads each page just before writing. If someone changed the restrictions in the meantime, it stops and logs a conflict instead of acting on stale data.</li>
-      <li>After every write it reads the page again to check the result.</li>
-      <li>A cascade never lets anyone change more than Confluence already allows them: only people who can edit the root page and administer its space can set one up.</li>
-      <li>It runs entirely on Atlassian's platform. No data leaves Atlassian. See the <a href="/privacy/">privacy policy</a>.</li>
-    </ul>
-
-    <h2 id="limitations">Limitations</h2>
-    <ul>
-      <li>Confluence reports new pages up to about three minutes late, so a brand-new page can briefly be editable by everyone in the space.</li>
-      <li>Pages moved <em>out</em> of a root keep the editors they had. Nothing is removed automatically.</li>
-      <li>Smart links (embeds) have no restrictions in Confluence, so they are listed as unsupported.</li>
-      <li>View-restricted content that the app cannot see is not covered (see <a href="#view">above</a>).</li>
-    </ul>
-
-    <h2 id="troubleshooting">Troubleshooting</h2>
-    <h3>The Restriction Cascade dialog never opens</h3>
-    <p>
-      Confluence loads app screens from <code>*.cdn.prod.atlassian-dev.net</code>. Some home and office networks block that domain in their
-      DNS filter. Turn on secure DNS (DNS over HTTPS) in your browser, or ask your network admin to allow the domain.
-    </p>
-    <h3>Nothing happens below a root</h3>
-    <ul>
-      <li>Check that the root page itself restricts editing. A page anyone can edit has no editors to hand down.</li>
-      <li>Check that the app is switched on for the site and for the space.</li>
-      <li>Check the activity log in space settings for skipped pages or conflicts.</li>
-      <li>If the licence is not active, cascades are paused and the dialog says so.</li>
-    </ul>
-
-    <h2>Uninstalling</h2>
-    <p>Restrictions the app has set stay on your pages. Atlassian deletes the app's stored data 28 days after uninstall.</p>
-
-    <h2>Need help?</h2>
-    <p>Email <a href="mailto:support@findigo.in">support@findigo.in</a>. See <a href="/support/">Support</a>.</p>
   </main>
 
-  <footer class="site">
-    <div class="inner">Restriction Cascade for Confluence · Findigo · <a href="mailto:support@findigo.in">support@findigo.in</a></div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">Restriction Cascade</a>
+          <p>Edit restrictions that follow the page tree, for Confluence Cloud. Made by Findigo.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="https://marketplace.atlassian.com/apps/2555148350">Marketplace</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/docs/#troubleshooting">Troubleshooting</a></li>
+            <li><a href="/support/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy/">Privacy policy</a></li>
+            <li><a href="/support/#security">Report a security issue</a></li>
+            <li><a href="mailto:support@findigo.in">support@findigo.in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 Sarkhail Niyazi, trading as Findigo</span>
+        <span>Atlassian and Confluence are trademarks of Atlassian Pty Ltd.</span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>

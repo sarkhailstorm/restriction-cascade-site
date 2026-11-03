@@ -4,50 +4,372 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Restriction Cascade for Confluence</title>
-  <meta name="description" content="Child pages inherit the parent's edit restrictions automatically. Merge or mirror editors, audit every change, never touch view.">
+  <meta name="description" content="Child pages inherit the parent's edit restrictions automatically. Merge or mirror editors, preview every change, keep a 90-day audit log, and never touch view access.">
+  <meta name="theme-color" content="#0c66e4">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Restriction Cascade for Confluence">
+  <meta property="og:description" content="Edit restrictions that follow the page tree, automatically.">
+  <meta property="og:url" content="https://cascade.findigo.in/">
+  <meta property="og:image" content="https://cascade.findigo.in/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/logo-144.png">
   <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/site.js" defer></script>
 </head>
 <body>
-  <header class="site">
-    <div class="inner">
-      <a class="brand" href="/">Restriction Cascade</a>
-      <nav class="site" aria-label="Main">
-        <a href="/docs/">Documentation</a>
-        <a href="/privacy/">Privacy</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">Restriction Cascade</a>
+      <nav class="nav" aria-label="Main">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/docs/">Docs</a>
         <a href="/support/">Support</a>
+        <a class="btn" href="/docs/#get-started">Get started</a>
       </nav>
+      <details class="menu">
+        <summary aria-label="Open menu"><svg aria-hidden="true"><use href="/assets/icons.svg#menu"/></svg></summary>
+        <nav class="menu-panel" aria-label="Main">
+          <a href="/#features">Features</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/docs/">Documentation</a>
+          <a href="/support/">Support</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </details>
     </div>
   </header>
 
-  <main>
-    <h1>Restriction Cascade for Confluence</h1>
-    <p class="lead">
-      Confluence passes view restrictions down the page tree, but not edit restrictions. Restriction Cascade hands a page's editors down to
-      every page, folder, whiteboard and database below it, automatically.
-    </p>
-    <p><a class="button" href="/docs/#get-started">Get started</a></p>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">For Confluence Cloud</span>
+          <h1>Edit restrictions that <span>follow the page tree</span></h1>
+          <p class="lead">
+            Confluence passes view restrictions down the page tree, but not edit restrictions. Restriction Cascade hands a page's editors
+            down to every page, folder, whiteboard and database below it, automatically.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/docs/#get-started">Get started <svg aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+            <a class="btn btn-ghost" href="https://marketplace.atlassian.com/apps/2555148350">View on Marketplace <svg aria-hidden="true"><use href="/assets/icons.svg#external"/></svg></a>
+          </div>
+          <ul class="trust">
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg>Runs on Atlassian</li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg>Never changes who can view</li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg>90-day activity log</li>
+          </ul>
+        </div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Follows the page tree</h3>
-        <p>Pages created, moved, copied or restored below a root get its editors within about a minute.</p>
+        <div class="hero-visual">
+          <div class="shot">
+            <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Finance Policies · Apps → Restriction Cascade</span></div>
+            <img src="/assets/img/dialog.png" width="800" height="822"
+              alt="The Restriction Cascade dialog on a page: it is a cascade root in Mirror mode, editable by the Finance editors group and one person, with buttons to preview changes or apply to all pages below now.">
+          </div>
+          <div class="float-card">
+            <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#zap"/></svg></span>
+            <div><strong>New pages restricted</strong><span>within about a minute</span></div>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h3>Never touches view</h3>
-        <p>It only grants or removes edit. Pages limited to some viewers stay limited.</p>
-      </div>
-      <div class="card">
-        <h3>Built for admins</h3>
-        <p>Merge, mirror or exclude, preview first, switch it per space, and see every change in a 90-day log.</p>
-      </div>
-    </div>
+    </section>
 
-    <h2>Runs on Atlassian</h2>
-    <p>No external servers and no data leaving Atlassian. Everything lives in Atlassian's Forge platform. Read the <a href="/privacy/">privacy policy</a>.</p>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>One root. Every page below it, locked the same way.</h2>
+          <p class="lead">Restrict editing on a parent page in Confluence and its children stay open to everyone in the space. Restriction Cascade closes that gap.</p>
+        </div>
+
+        <div class="compare">
+          <div class="compare-card">
+            <span class="tag tag-bad">Confluence on its own</span>
+            <h3>Edit access stops at the parent</h3>
+            <div class="tree" aria-label="Example page tree without Restriction Cascade">
+              <div class="tree-row"><svg class="lock-closed" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Finance Policies<span class="who who-locked">Finance editors</span></div>
+              <div class="tree-row l1"><svg class="lock-open" aria-hidden="true"><use href="/assets/icons.svg#unlock"/></svg>Budget 2027<span class="who who-open">Anyone</span></div>
+              <div class="tree-row l1"><svg class="lock-open" aria-hidden="true"><use href="/assets/icons.svg#unlock"/></svg>Vendor Contracts<span class="who who-open">Anyone</span></div>
+              <div class="tree-row l2"><svg class="lock-open" aria-hidden="true"><use href="/assets/icons.svg#unlock"/></svg>Signed Agreements<span class="who who-open">Anyone</span></div>
+            </div>
+            <p class="muted">Every child page, and every new page added later, has to be locked by hand, and it is easy to miss one.</p>
+          </div>
+
+          <div class="compare-card">
+            <span class="tag tag-good">With Restriction Cascade</span>
+            <h3>Editors flow down on their own</h3>
+            <div class="tree" aria-label="Example page tree with Restriction Cascade">
+              <div class="tree-row"><svg class="lock-closed" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Finance Policies<span class="who who-locked">Finance editors</span></div>
+              <div class="tree-row l1"><svg class="lock-closed" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Budget 2027<span class="who who-locked">Finance editors</span></div>
+              <div class="tree-row l1"><svg class="lock-closed" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Vendor Contracts<span class="who who-locked">Finance editors</span></div>
+              <div class="tree-row l2"><svg class="lock-closed" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Signed Agreements<span class="who who-locked">Finance editors</span></div>
+            </div>
+            <p class="muted">Make the parent a cascade root once. Pages created, moved, copied or restored below it get the same editors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2>Everything a space admin needs</h2>
+          <p class="lead">Pick how strict a cascade should be, see what it will do first, and keep a record of every change.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg></span>
+            <h3>Merge</h3>
+            <p>Pages anyone could edit get the root's editors. Pages that already restrict editing keep their editors and gain the root's.</p>
+          </div>
+          <div class="card">
+            <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#mirror"/></svg></span>
+            <h3>Mirror</h3>
+            <p>Every page gets exactly the root's editors. Anyone else listed as an editor is changed to view-only, so nobody loses view access.</p>
+          </div>
+          <div class="card">
+            <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#exclude"/></svg></span>
+            <h3>Exclude</h3>
+            <p>Shield a page and everything below it from a cascade set higher up. Roots can be nested, and the nearest one decides.</p>
+          </div>
+          <div class="card">
+            <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#zap"/></svg></span>
+            <h3>Automatic</h3>
+            <p>New, moved, copied and restored content is restricted within about a minute, and an hourly check catches anything Confluence did not report.</p>
+          </div>
+          <div class="card">
+            <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#eye"/></svg></span>
+            <h3>Preview, then apply</h3>
+            <p>See exactly what would change before anything does. Apply to existing pages in one click and stop a run at any time.</p>
+          </div>
+          <div class="card">
+            <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#history"/></svg></span>
+            <h3>Activity log</h3>
+            <p>Every change is kept for 90 days: what changed, on which page, whose access, and what triggered it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>Set it up in three steps</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Restrict the parent page</h3>
+            <p>Open the page whose editors should apply below it and choose who may edit: <strong>Share → Specific access</strong>.</p>
+          </li>
+          <li>
+            <h3>Make it a cascade root</h3>
+            <p>From the page's <strong>•••</strong> menu choose <strong>Apps → Restriction Cascade</strong>, then pick Merge or Mirror.</p>
+          </li>
+          <li>
+            <h3>Apply once, then relax</h3>
+            <p>Apply to bring existing pages in line. From then on, new and moved pages follow on their own.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-tint">
+      <div class="wrap">
+        <div class="showcase">
+          <div class="showcase-text">
+            <span class="eyebrow">Clear results</span>
+            <h2>See what changed, and why anything was skipped</h2>
+            <p class="lead">Every run ends with a plain report, right in the dialog.</p>
+            <ul class="checks">
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span><strong>Runs in the background.</strong> Close the dialog and come back later.</span></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span><strong>Skipped pages are listed</strong> with the reason, so nothing changes silently.</span></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span><strong>Preview first.</strong> Nothing changes until you apply.</span></li>
+            </ul>
+          </div>
+          <div class="shot">
+            <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Cascade finished</span></div>
+            <a href="/assets/img/results.png" title="Open full size"><img src="/assets/img/results.png" width="800" height="790" loading="lazy"
+              alt="A finished cascade run: six items checked and changed, with each changed page listed, and one page listed as skipped with the reason."></a>
+          </div>
+        </div>
+
+        <div class="showcase flip">
+          <div class="shot">
+            <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Space settings · Restriction Cascade · Activity</span></div>
+            <a href="/assets/img/activity.png" title="Open full size"><img src="/assets/img/activity.png" width="1150" height="556" loading="lazy"
+              alt="The space activity log: each row shows when a change happened, what it was, the page, who triggered it, and details such as one editor added."></a>
+          </div>
+          <div class="showcase-text">
+            <span class="eyebrow">Audit trail</span>
+            <h2>Know who changed what, and when</h2>
+            <p class="lead">Space and site settings list every root and keep a 90-day activity log.</p>
+            <ul class="checks">
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span><strong>Who triggered each change</strong> and what caused it.</span></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span><strong>Whose edit access</strong> was added or changed to view-only.</span></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span><strong>Switch it on or off</strong> per space or for the whole site.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="safety">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Safety</span>
+          <h2>Careful by design</h2>
+          <p class="lead">Permissions are serious. Restriction Cascade only ever adds editors or changes them to view-only, and checks its work.</p>
+        </div>
+        <div class="glance">
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><p><strong>Never changes who can view</strong>Pages limited to some viewers stay limited, and edit access only goes to people who can already view.</p></div>
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><p><strong>Never deletes permission entries</strong>Mirror changes extra editors to view-only instead of removing them.</p></div>
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><p><strong>Stops on conflicts</strong>It re-reads each page just before writing, and logs a conflict instead of acting on stale data.</p></div>
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><p><strong>Verifies every write</strong>After each change it reads the page again to check the result.</p></div>
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><p><strong>No new powers</strong>Only people who can edit the root and administer its space can set up a cascade.</p></div>
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg><p><strong>Runs on Atlassian</strong>No external servers, and no data leaves Atlassian. <a href="/privacy/">Privacy policy</a></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Pricing</span>
+          <h2>Simple pricing, billed by Atlassian</h2>
+          <p class="lead">Buy and try it through the Atlassian Marketplace. It is billed with your Confluence subscription.</p>
+        </div>
+        <div class="pricing">
+          <div class="price-card">
+            <h3>Small teams</h3>
+            <p class="muted">Up to 10 Confluence users</p>
+            <div class="price-big">$5 <small>/ month, flat</small></div>
+            <ul class="checks">
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span>Every feature included</span></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span>Unlimited roots and spaces</span></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span>Email support</span></li>
+            </ul>
+            <p style="margin-top: 24px; margin-bottom: 0;">
+              <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2555148350">Try it free on the Marketplace <svg aria-hidden="true"><use href="/assets/icons.svg#external"/></svg></a>
+            </p>
+          </div>
+          <div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Confluence users</th><th>Monthly price</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1 – 10</td><td class="num">$5 flat</td></tr>
+                  <tr><td>11 – 100</td><td class="num">$0.50 per user</td></tr>
+                  <tr><td>101 – 250</td><td class="num">$0.30 per user</td></tr>
+                  <tr><td>251 – 1,000</td><td class="num">$0.15 per user</td></tr>
+                  <tr><td>1,001 – 2,500</td><td class="num">$0.08 per user</td></tr>
+                  <tr><td>2,501 – 5,000</td><td class="num">$0.05 per user</td></tr>
+                  <tr><td>5,001 and up</td><td class="num">$0.03 per user</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="muted" style="margin-top: 14px; font-size: 0.92rem;">
+              Prices in US dollars. Annual plans cost ten times the monthly price. The Marketplace listing shows the exact price for your
+              site's user tier.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Common questions</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Does it change who can view a page?</summary>
+            <p>No. It only grants or removes edit access. Pages limited to some viewers stay limited, and it only gives edit access to people who can already view the page.</p>
+          </details>
+          <details>
+            <summary>What is the difference between Merge and Mirror?</summary>
+            <p>Merge adds the root's editors and keeps anyone a page already lists. Mirror makes every page match the root exactly and changes anyone else to view-only. Nobody loses view access with either.</p>
+          </details>
+          <details>
+            <summary>How quickly are new pages restricted?</summary>
+            <p>Usually within about a minute. Confluence can report new pages up to about three minutes late, so a brand-new page can briefly be editable by everyone in the space.</p>
+          </details>
+          <details>
+            <summary>Does any data leave Atlassian?</summary>
+            <p>No. The app runs entirely on Atlassian's Forge platform. We operate no servers and cannot see your content. See the <a href="/privacy/">privacy policy</a>.</p>
+          </details>
+          <details>
+            <summary>Which Confluence plans does it work on?</summary>
+            <p>Confluence Cloud Standard, Premium and Enterprise. Confluence Free has no page restrictions, so there is nothing to cascade.</p>
+          </details>
+          <details>
+            <summary>What happens if I uninstall it?</summary>
+            <p>Restrictions the app has set stay on your pages. Atlassian deletes the app's stored data 28 days after uninstall.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="cta-band">
+          <h2>Lock down a whole page tree in minutes</h2>
+          <p>Set one root, choose Merge or Mirror, and let Restriction Cascade keep every page below it in line.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/docs/#get-started">Read the guide <svg aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+            <a class="btn btn-ghost" href="/support/">Ask a question</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="site">
-    <div class="inner">Restriction Cascade for Confluence · Findigo · <a href="mailto:support@findigo.in">support@findigo.in</a></div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">Restriction Cascade</a>
+          <p>Edit restrictions that follow the page tree, for Confluence Cloud. Made by Findigo.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="https://marketplace.atlassian.com/apps/2555148350">Marketplace</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/docs/#troubleshooting">Troubleshooting</a></li>
+            <li><a href="/support/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy/">Privacy policy</a></li>
+            <li><a href="/support/#security">Report a security issue</a></li>
+            <li><a href="mailto:support@findigo.in">support@findigo.in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 Sarkhail Niyazi, trading as Findigo</span>
+        <span>Atlassian and Confluence are trademarks of Atlassian Pty Ltd.</span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>

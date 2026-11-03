@@ -5,108 +5,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy · Restriction Cascade for Confluence</title>
   <meta name="description" content="Privacy policy for the Restriction Cascade for Confluence app by Findigo.">
+  <meta name="theme-color" content="#0c66e4">
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/logo-144.png">
   <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/site.js" defer></script>
 </head>
 <body>
-  <header class="site">
-    <div class="inner">
-      <a class="brand" href="/">Restriction Cascade</a>
-      <nav class="site" aria-label="Main">
-        <a href="/docs/">Documentation</a>
-        <a href="/privacy/" aria-current="page">Privacy</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">Restriction Cascade</a>
+      <nav class="nav" aria-label="Main">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/docs/">Docs</a>
         <a href="/support/">Support</a>
+        <a class="btn" href="/docs/#get-started">Get started</a>
       </nav>
+      <details class="menu">
+        <summary aria-label="Open menu"><svg aria-hidden="true"><use href="/assets/icons.svg#menu"/></svg></summary>
+        <nav class="menu-panel" aria-label="Main">
+          <a href="/#features">Features</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/docs/">Documentation</a>
+          <a href="/support/">Support</a>
+          <a href="/privacy/" aria-current="page">Privacy</a>
+        </nav>
+      </details>
     </div>
   </header>
 
-  <main>
-    <h1>Privacy Policy</h1>
-    <p class="meta">Restriction Cascade for Confluence · Effective 3 November 2026</p>
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="/">Home</a> / Privacy</div>
+        <h1>Privacy Policy</h1>
+        <p class="lead">Restriction Cascade runs entirely on Atlassian's platform and keeps as little as it can.</p>
+        <div class="meta-line">
+          <span><svg aria-hidden="true"><use href="/assets/icons.svg#clock"/></svg>Effective 3 November 2026</span>
+          <span><svg aria-hidden="true"><use href="/assets/icons.svg#cloud"/></svg>Runs on Atlassian</span>
+        </div>
+      </div>
+    </section>
 
-    <p>
-      <strong>Provider:</strong> Sarkhail Niyazi, trading as Findigo, India ("we", "us")<br>
-      <strong>Contact:</strong> <a href="mailto:support@findigo.in">support@findigo.in</a>
-    </p>
+    <div class="wrap page-body">
+      <article class="prose">
+        <h2 style="font-size: 1.25rem;">At a glance</h2>
+        <div class="glance">
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#cloud"/></svg><p><strong>No servers of ours</strong>The app runs on Atlassian Forge. No data leaves Atlassian.</p></div>
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#file"/></svg><p><strong>No content stored</strong>No page content, attachments, names or email addresses.</p></div>
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#clock"/></svg><p><strong>Short retention</strong>Activity log entries last 90 days, job records 14 days.</p></div>
+          <div><svg aria-hidden="true"><use href="/assets/icons.svg#refresh"/></svg><p><strong>Deleted on uninstall</strong>Atlassian deletes the app's data 28 days after uninstall.</p></div>
+        </div>
+        <p class="muted" style="font-size: 0.92rem;">This summary is for convenience. The full policy below is what applies.</p>
 
-    <h2>1. Scope</h2>
-    <p>This policy covers the Restriction Cascade for Confluence app (the "App"), installed on Atlassian Confluence Cloud sites.</p>
+        <div class="callout">
+          <svg aria-hidden="true"><use href="/assets/icons.svg#info"/></svg>
+          <p>
+            <strong>Provider:</strong> Sarkhail Niyazi, trading as Findigo, India ("we", "us")<br>
+            <strong>Contact:</strong> <a href="mailto:support@findigo.in">support@findigo.in</a>
+          </p>
+        </div>
 
-    <h2>2. Where data lives</h2>
-    <p>
-      The App runs entirely on Atlassian's Forge platform ("Runs on Atlassian"). We operate no servers. The App never sends data
-      outside Atlassian's infrastructure, and we cannot access your Confluence content or the App's stored data.
-    </p>
+        <h2 id="scope">1. Scope</h2>
+        <p>This policy covers the Restriction Cascade for Confluence app (the "App"), installed on Atlassian Confluence Cloud sites.</p>
 
-    <h2>3. What the App stores</h2>
-    <p>The App stores the following in Atlassian Forge hosted storage for your site:</p>
-    <ul>
-      <li><strong>Settings:</strong> whether the App is enabled site-wide and per space, and who may manage cascades.</li>
-      <li>
-        <strong>Cascade roots:</strong> for each page or folder an administrator marks as a root:
+        <h2 id="where">2. Where data lives</h2>
+        <p>
+          The App runs entirely on Atlassian's Forge platform ("Runs on Atlassian"). We operate no servers. The App never sends data
+          outside Atlassian's infrastructure, and we cannot access your Confluence content or the App's stored data.
+        </p>
+
+        <h2 id="stored">3. What the App stores</h2>
+        <p>The App stores the following in Atlassian Forge hosted storage for your site:</p>
         <ul>
-          <li>its id, title and space,</li>
-          <li>the chosen mode,</li>
-          <li>the Atlassian account ids of the people who created or last changed it.</li>
+          <li><strong>Settings:</strong> whether the App is enabled site-wide and per space, and who may manage cascades.</li>
+          <li>
+            <strong>Cascade roots:</strong> for each page or folder an administrator marks as a root:
+            <ul>
+              <li>its id, title and space,</li>
+              <li>the chosen mode,</li>
+              <li>the Atlassian account ids of the people who created or last changed it.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Editor fingerprints:</strong> for each cascade root, a one-way hash of who can edit it, so the App can notice when that
+            changes. It contains no account ids or names, and is deleted with the root.
+          </li>
+          <li><strong>Background job progress:</strong> counts and a short sample of affected page titles. Deleted after 14 days.</li>
+          <li>
+            <strong>Activity log:</strong> for each change the App makes or each setting someone changes:
+            <ul>
+              <li>the time and the content id and title,</li>
+              <li>the Atlassian account id of the person who triggered it,</li>
+              <li>the account or group ids whose edit access changed.</li>
+            </ul>
+            Deleted after 90 days.
+          </li>
         </ul>
-      </li>
-      <li>
-        <strong>Editor fingerprints:</strong> for each cascade root, a one-way hash of who can edit it, so the App can notice when that
-        changes. It contains no account ids or names, and is deleted with the root.
-      </li>
-      <li><strong>Background job progress:</strong> counts and a short sample of affected page titles. Deleted after 14 days.</li>
-      <li>
-        <strong>Activity log:</strong> for each change the App makes or each setting someone changes:
+        <p>
+          The App does not store names, email addresses, page content or attachments. Names shown in the App are fetched live from
+          Confluence and are not kept.
+        </p>
+
+        <h2 id="why">4. Why</h2>
+        <p>
+          We store this data only to provide the App's function: applying edit restrictions down the page tree, and showing administrators
+          what was changed and why.
+        </p>
+
+        <h2 id="personal-data">5. Personal data</h2>
+        <p>Atlassian account ids are personal data.</p>
         <ul>
-          <li>the time and the content id and title,</li>
-          <li>the Atlassian account id of the person who triggered it,</li>
-          <li>the account or group ids whose edit access changed.</li>
+          <li>As Atlassian's Forge guidelines require, the App reports the account ids it stores to Atlassian every week.</li>
+          <li>When Atlassian reports that an account was closed, the App erases that id from its stored data.</li>
         </ul>
-        Deleted after 90 days.
-      </li>
-    </ul>
-    <p>
-      The App does not store names, email addresses, page content or attachments. Names shown in the App are fetched live from
-      Confluence and are not kept.
-    </p>
 
-    <h2>4. Why</h2>
-    <p>
-      We store this data only to provide the App's function: applying edit restrictions down the page tree, and showing administrators
-      what was changed and why.
-    </p>
+        <h2 id="retention">6. Retention and deletion</h2>
+        <ul>
+          <li>Activity log entries expire after 90 days. Job records expire after 14 days.</li>
+          <li>When the App is uninstalled, Atlassian deletes all of the App's stored data 28 days later.</li>
+        </ul>
 
-    <h2>5. Personal data</h2>
-    <p>Atlassian account ids are personal data.</p>
-    <ul>
-      <li>As Atlassian's Forge guidelines require, the App reports the account ids it stores to Atlassian every week.</li>
-      <li>When Atlassian reports that an account was closed, the App erases that id from its stored data.</li>
-    </ul>
+        <h2 id="residency">7. Data residency</h2>
+        <p>Forge hosted storage follows your Confluence site's data residency settings.</p>
 
-    <h2>6. Retention and deletion</h2>
-    <ul>
-      <li>Activity log entries expire after 90 days. Job records expire after 14 days.</li>
-      <li>When the App is uninstalled, Atlassian deletes all of the App's stored data 28 days later.</li>
-    </ul>
+        <h2 id="sub-processors">8. Sub-processors</h2>
+        <p>Atlassian, as the platform provider. There are no others.</p>
 
-    <h2>7. Data residency</h2>
-    <p>Forge hosted storage follows your Confluence site's data residency settings.</p>
+        <h2 id="rights">9. Your rights</h2>
+        <p>
+          Contact your Confluence site administrator, or us at <a href="mailto:support@findigo.in">support@findigo.in</a>, about access,
+          correction or deletion requests. For data held by Atlassian, see
+          <a href="https://www.atlassian.com/legal/privacy-policy">Atlassian's privacy policy</a>.
+        </p>
 
-    <h2>8. Sub-processors</h2>
-    <p>Atlassian, as the platform provider. There are no others.</p>
-
-    <h2>9. Your rights</h2>
-    <p>
-      Contact your Confluence site administrator, or us at <a href="mailto:support@findigo.in">support@findigo.in</a>, about access,
-      correction or deletion requests. For data held by Atlassian, see
-      <a href="https://www.atlassian.com/legal/privacy-policy">Atlassian's privacy policy</a>.
-    </p>
-
-    <h2>10. Changes</h2>
-    <p>We will post changes to this page and update the effective date.</p>
+        <h2 id="changes">10. Changes</h2>
+        <p>We will post changes to this page and update the effective date.</p>
+      </article>
+    </div>
   </main>
 
-  <footer class="site">
-    <div class="inner">Restriction Cascade for Confluence · Findigo · <a href="mailto:support@findigo.in">support@findigo.in</a></div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">Restriction Cascade</a>
+          <p>Edit restrictions that follow the page tree, for Confluence Cloud. Made by Findigo.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="https://marketplace.atlassian.com/apps/2555148350">Marketplace</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/docs/#troubleshooting">Troubleshooting</a></li>
+            <li><a href="/support/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy/">Privacy policy</a></li>
+            <li><a href="/support/#security">Report a security issue</a></li>
+            <li><a href="mailto:support@findigo.in">support@findigo.in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 Sarkhail Niyazi, trading as Findigo</span>
+        <span>Atlassian and Confluence are trademarks of Atlassian Pty Ltd.</span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
