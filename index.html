@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Restriction Cascade for Confluence</title>
+  <title>Inherit edit restrictions in Confluence Cloud · Restriction Cascade</title>
   <meta name="description" content="Child pages inherit the parent's edit restrictions automatically. Merge or mirror editors, preview every change, keep a 90-day audit log, and never touch view access.">
+  <link rel="canonical" href="https://cascade.findigo.in/">
   <meta name="theme-color" content="#0c66e4">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Restriction Cascade for Confluence">
+  <meta property="og:title" content="Restriction Cascade: inherit edit restrictions in Confluence Cloud">
   <meta property="og:description" content="Edit restrictions that follow the page tree, automatically.">
   <meta property="og:url" content="https://cascade.findigo.in/">
   <meta property="og:image" content="https://cascade.findigo.in/assets/img/og.png">
@@ -16,6 +17,26 @@
   <link rel="apple-touch-icon" href="/assets/img/logo-144.png">
   <link rel="stylesheet" href="/assets/style.css">
   <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Restriction Cascade for Confluence",
+    "description": "Child pages inherit the parent's edit restrictions automatically in Confluence Cloud. Merge or mirror editors, preview every change, keep a 90-day audit log, and never touch view access.",
+    "url": "https://cascade.findigo.in/",
+    "image": "https://cascade.findigo.in/assets/img/og.png",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Confluence Cloud",
+    "offers": {
+      "@type": "Offer",
+      "price": "5.00",
+      "priceCurrency": "USD",
+      "description": "Per month for up to 10 users, with a 30-day free trial",
+      "url": "https://marketplace.atlassian.com/apps/2555148350"
+    },
+    "publisher": { "@type": "Organization", "name": "Findigo", "email": "support@findigo.in" }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -292,6 +313,10 @@
         </div>
         <div class="faq">
           <details>
+            <summary>Why doesn't Confluence do this on its own?</summary>
+            <p>Confluence Cloud passes view restrictions down to child pages, but not edit restrictions, and Atlassian's request to change that has been open since 2006. Read <a href="/guides/inherit-edit-restrictions/">why edit restrictions don't inherit</a>, and the workarounds.</p>
+          </details>
+          <details>
             <summary>Does it change who can view a page?</summary>
             <p>No. It only grants or removes edit access. Pages limited to some viewers stay limited, and it only gives edit access to people who can already view the page.</p>
           </details>
@@ -352,6 +377,7 @@
           <h4>Help</h4>
           <ul>
             <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/guides/inherit-edit-restrictions/">Why edit restrictions don't inherit</a></li>
             <li><a href="/docs/#troubleshooting">Troubleshooting</a></li>
             <li><a href="/support/">Support</a></li>
           </ul>

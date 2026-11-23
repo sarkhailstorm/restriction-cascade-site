@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cascade.findigo.in/sitemap.xml

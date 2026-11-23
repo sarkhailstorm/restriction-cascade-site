@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Confluence edit restrictions don't inherit (and how to fix it)</title>
+  <meta name="description" content="Confluence Cloud passes view restrictions down to child pages, but not edit restrictions. What that means, the workarounds, and how to make editors follow the page tree automatically.">
+  <link rel="canonical" href="https://cascade.findigo.in/guides/inherit-edit-restrictions/">
+  <meta name="theme-color" content="#0c66e4">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Why Confluence edit restrictions don't inherit (and how to fix it)">
+  <meta property="og:description" content="Child pages inherit view restrictions in Confluence Cloud, but not edit restrictions. Here is what to do about it.">
+  <meta property="og:url" content="https://cascade.findigo.in/guides/inherit-edit-restrictions/">
+  <meta property="og:image" content="https://cascade.findigo.in/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/logo-144.png">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Confluence edit restrictions don't inherit (and how to fix it)",
+    "description": "Confluence Cloud passes view restrictions down to child pages, but not edit restrictions. What that means, the workarounds, and how to make editors follow the page tree automatically.",
+    "image": "https://cascade.findigo.in/assets/img/og.png",
+    "datePublished": "2026-11-23",
+    "dateModified": "2026-11-23",
+    "mainEntityOfPage": "https://cascade.findigo.in/guides/inherit-edit-restrictions/",
+    "author": { "@type": "Organization", "name": "Findigo", "url": "https://cascade.findigo.in/" },
+    "publisher": { "@type": "Organization", "name": "Findigo", "url": "https://cascade.findigo.in/" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">Restriction Cascade</a>
+      <nav class="nav" aria-label="Main">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/docs/">Docs</a>
+        <a href="/support/">Support</a>
+        <a class="btn" href="/docs/#get-started">Get started</a>
+      </nav>
+      <details class="menu">
+        <summary aria-label="Open menu"><svg aria-hidden="true"><use href="/assets/icons.svg#menu"/></svg></summary>
+        <nav class="menu-panel" aria-label="Main">
+          <a href="/#features">Features</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/docs/">Documentation</a>
+          <a href="/support/">Support</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="/">Home</a> / Guides</div>
+        <h1>Why Confluence edit restrictions don't inherit (and how to fix it)</h1>
+        <p class="lead">
+          In Confluence Cloud, child pages inherit view restrictions from their parent, but not edit restrictions. Here is what that means,
+          the workarounds that exist, and how to make editors follow the page tree automatically.
+        </p>
+        <p class="meta-line">Updated 23 November 2026 · 5 minute read</p>
+      </div>
+    </section>
+
+    <div class="wrap page-body">
+      <article class="prose">
+        <section id="short-answer">
+          <h2>The short answer</h2>
+          <ul>
+            <li><strong>View restrictions are inherited.</strong> If only some people can view a page, every page below it is hidden from everyone else too.</li>
+            <li><strong>Edit restrictions are not.</strong> They apply only to the page where you set them. The pages below it can be edited by anyone who can view them and is allowed to edit in the space.</li>
+            <li>
+              Atlassian has tracked the request to change this as
+              <a href="https://jira.atlassian.com/browse/CONFCLOUD-5095">CONFCLOUD-5095</a> since 2006, and it is still open.
+            </li>
+          </ul>
+        </section>
+
+        <section id="example">
+          <h2>What this looks like in practice</h2>
+          <p>
+            Say the finance team restricts editing on <em>Finance Policies</em> so only finance editors can change it. A colleague then adds
+            <em>Budget 2027</em> under it. The new page starts with no edit restrictions of its own, so anyone in the space who can edit pages can
+            change it, and the same goes for every page added below it later.
+          </p>
+          <div class="compare-card">
+            <span class="tag tag-bad">Confluence on its own</span>
+            <h3>Edit access stops at the parent</h3>
+            <div class="tree" aria-label="Example page tree where only the parent page restricts editing">
+              <div class="tree-row"><svg class="lock-closed" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Finance Policies<span class="who who-locked">Finance editors</span></div>
+              <div class="tree-row l1"><svg class="lock-open" aria-hidden="true"><use href="/assets/icons.svg#unlock"/></svg>Budget 2027<span class="who who-open">Anyone</span></div>
+              <div class="tree-row l1"><svg class="lock-open" aria-hidden="true"><use href="/assets/icons.svg#unlock"/></svg>Vendor Contracts<span class="who who-open">Anyone</span></div>
+              <div class="tree-row l2"><svg class="lock-open" aria-hidden="true"><use href="/assets/icons.svg#unlock"/></svg>Signed Agreements<span class="who who-open">Anyone</span></div>
+            </div>
+          </div>
+          <p>Pages moved or copied into the tree keep whatever edit restrictions they already had, which is often none.</p>
+        </section>
+
+        <section id="workarounds">
+          <h2>Your options without an app</h2>
+          <ol class="num-steps">
+            <li>
+              <strong>Restrict each page by hand.</strong> Open the page, choose <strong>Share → Specific access</strong>, and add the people and
+              groups who may edit. It works, but it has to be repeated for every existing page and every page added, moved or copied in later,
+              and it is easy to miss one.
+            </li>
+            <li>
+              <strong>Tighten the space permissions.</strong> Limit who can add and edit pages in the whole space. This protects the tree, but
+              it also locks every other page in the space.
+            </li>
+            <li>
+              <strong>Move the content to its own space.</strong> A separate space with strict permissions keeps sensitive pages apart, at the
+              cost of splitting related content across spaces.
+            </li>
+          </ol>
+          <div class="callout warn">
+            <svg aria-hidden="true"><use href="/assets/icons.svg#alert"/></svg>
+            <p>None of these keep up on their own. As soon as someone adds a page under the restricted one, it is open again until somebody notices.</p>
+          </div>
+        </section>
+
+        <section id="automatic">
+          <h2>Make edit restrictions follow the page tree</h2>
+          <p>
+            Restriction Cascade is our Confluence Cloud app for exactly this. You make a page or folder a <em>cascade root</em>, and its editors
+            are applied to everything below it, including pages added later.
+          </p>
+          <ol class="num-steps">
+            <li>Restrict editing on the parent page: <strong>Share → Specific access</strong>, then add the people and groups who may edit.</li>
+            <li>Open the page's <strong>•••</strong> menu and choose <strong>Apps → Restriction Cascade</strong>.</li>
+            <li>Choose <strong>Merge</strong> or <strong>Mirror</strong>.</li>
+            <li>Click <strong>Save and apply to all pages below</strong>. You can preview the changes first.</li>
+          </ol>
+          <p>
+            From then on, pages created, moved, copied or restored below the root get the same editors within about a minute, and when the root's
+            editors change, the pages below follow.
+          </p>
+          <div class="mode-grid">
+            <div class="card">
+              <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg></span>
+              <h3>Merge</h3>
+              <p>Pages anyone could edit get the root's editors. Pages that already restrict editing keep their editors and gain the root's.</p>
+            </div>
+            <div class="card">
+              <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#mirror"/></svg></span>
+              <h3>Mirror</h3>
+              <p>Every page gets exactly the root's editors. Anyone else listed as an editor is changed to view-only.</p>
+            </div>
+            <div class="card">
+              <span class="icon"><svg aria-hidden="true"><use href="/assets/icons.svg#exclude"/></svg></span>
+              <h3>Exclude</h3>
+              <p>Shields a branch from a cascade set higher up. Roots can be nested, and the nearest one decides.</p>
+            </div>
+          </div>
+          <ul class="checks">
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span>It never changes who can view a page.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span>Works on pages, live docs, folders, whiteboards and databases.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span>Every change is kept in a 90-day activity log: what changed, where, and why.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><span>Runs on Atlassian's own platform. No data leaves Confluence.</span></li>
+          </ul>
+        </section>
+
+        <section id="questions">
+          <h2>Questions</h2>
+          <div class="faq">
+            <details>
+              <summary>Do view restrictions inherit in Confluence Cloud?</summary>
+              <p>Yes. If a page can only be viewed by some people, the pages below it are hidden from everyone else as well.</p>
+            </details>
+            <details>
+              <summary>Can I make edit restrictions inherit without an app?</summary>
+              <p>Not automatically. You can restrict editing page by page, or limit who can edit in the whole space, but neither follows the page tree as it changes.</p>
+            </details>
+            <details>
+              <summary>Will Restriction Cascade change who can see my pages?</summary>
+              <p>No. It only grants or removes edit access, and it only gives edit access to people who can already view the page.</p>
+            </details>
+            <details>
+              <summary>How much does it cost?</summary>
+              <p>$5 a month for up to 10 users, then per user. See <a href="/#pricing">pricing</a>. Every Marketplace app comes with a 30-day free trial.</p>
+            </details>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="cta-band">
+          <h2>Try it free for 30 days</h2>
+          <p>Install Restriction Cascade from the Atlassian Marketplace and lock down your first page tree in minutes.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2555148350">View on Marketplace <svg aria-hidden="true"><use href="/assets/icons.svg#external"/></svg></a>
+            <a class="btn btn-ghost" href="/docs/#get-started">Read the docs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">Restriction Cascade</a>
+          <p>Edit restrictions that follow the page tree, for Confluence Cloud. Made by Findigo.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="https://marketplace.atlassian.com/apps/2555148350">Marketplace</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul>
+            <li><a href="/docs/">Documentation</a></li>
+            <li><a href="/guides/inherit-edit-restrictions/">Why edit restrictions don't inherit</a></li>
+            <li><a href="/docs/#troubleshooting">Troubleshooting</a></li>
+            <li><a href="/support/">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy/">Privacy policy</a></li>
+            <li><a href="/support/#security">Report a security issue</a></li>
+            <li><a href="mailto:support@findigo.in">support@findigo.in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 Sarkhail Niyazi, trading as Findigo</span>
+        <span>Atlassian and Confluence are trademarks of Atlassian Pty Ltd.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
